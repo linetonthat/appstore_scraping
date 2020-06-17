@@ -6,8 +6,8 @@ were like. I'd like to (partially) answer the following questions:
 * What are their main features?
 * How are they rated?
 * What are users looking for when using those apps?
-* What are expectations that are not currently met?
-* How do they work? Is there a classification for such apps?
+* What expectations are not currently met?
+* How do these apps work? Is there a classification for such apps?
 
 After some research, it seems that Scrapy (https://doc.scrapy.org/en/latest/index.html) should help me scrape the data needed for my analysis.
 
