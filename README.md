@@ -17,5 +17,7 @@ Basically, Scrapy allows for gently scraping the web, which is what I'm intended
 For the time being, I've been busy getting a better understanding of:
 *  how to navigate html response using css attributes (when the response is in html).
 *  how to "translate" unicode text with '\r\n\t' and leading and trailing whitespaces
-** 
-understand dynamic requests
+    - used the .translate() function with the following dictionary: trans_table = {ord(c): None for c in u'\r\n\t'}
+    - used the .strip() function to get rid of leading and trailing whitespaces
+* how to deal with multiple classes in css tags to access the right level of data
+* understand dynamic requests
