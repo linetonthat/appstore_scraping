@@ -16,13 +16,23 @@ Basically, Scrapy allows for gently scraping the web, which is what I'm intended
 ---
 For the time being, I've been busy getting a better understanding of:
 *  how to navigate html response using css attributes (when the response is in html).
+    - how to deal with multiple classes in css tags to access the right level of data
 *  how to "translate" unicode text with '\r\n\t' and leading and trailing whitespaces
     - used the .translate() function with the following dictionary: trans_table = {ord(c): None for c in u'\r\n\t'}
     - used the .strip() function to get rid of leading and trailing whitespaces
-* how to deal with multiple classes in css tags to access the right level of data
 * understand dynamic requests: when the URL has a '#', the server does not care about what's after this symbol. The client (web browser) deals with it. Then, I needed to go the Developer's tools to find out where I could identify the "real" url I would need for scraping. Learned about cURL!
-* how to transform the cURL of into a request that can be handled by Scrapy (done manually at first, and discovered it can also be done using https://michael-shub.github.io/curl2scrapy/: thank you!!)
-* how to build a spider where the request has headers and parse the response which is in JSON format
-* how to easily visually the tree structure of a JSON format (thanks to: https://jsonformatter.org/json-viewer)
-* how to 
+    - how to transform the cURL of into a request that can be handled by Scrapy (done manually at first, and discovered it can also be done using https://michael-shub.github.io/curl2scrapy/: thank you!!)
+* how to build a spider where the requests have headers and the response (in JSON format) is parsed
+    - how to easily visually the tree structure of a JSON format (thanks to: https://jsonformatter.org/json-viewer)
+    - how to decode parameters from a URL in order to tidy up the code (thanks to https://meyerweb.com/eric/tools/dencoder/)
 
+---
+Next steps:
+* Review the settings of my spiders to ensure gentle scraping (so far, I've been selecting pages with limited amount of data to scrape on purpose)
+* Build two distinct spiders:
+    1. One to collect app features and description across a range of apps
+    2. One to collect reviews for a specific app
+* Identify relevant apps (so far, couldn't find an app search menu outside the appstore app...)
+* Investigate "live" apps
+* Have a look at the review texts (strange feeling when reading some of them)
+* Investigate how to automate data extraction from text reviews
