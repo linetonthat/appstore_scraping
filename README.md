@@ -12,3 +12,10 @@ were like. I'd like to (partially) answer the following questions:
 After some research, it seems that Scrapy (https://doc.scrapy.org/en/latest/index.html) should help me scrape the data needed for my analysis.
 
 Basically, Scrapy allows for gently scraping the web, which is what I'm intended here, by creating spiders and sending them out to crawl the app stores.
+
+---
+For the time being, I've been busy getting a better understanding of:
+*  how to navigate html response using css attributes (when the response is in html).
+*  how to "translate" unicode text with '\r\n\t' and leading and trailing whitespaces
+  * 
+understand dynamic requests
