@@ -20,4 +20,9 @@ For the time being, I've been busy getting a better understanding of:
     - used the .translate() function with the following dictionary: trans_table = {ord(c): None for c in u'\r\n\t'}
     - used the .strip() function to get rid of leading and trailing whitespaces
 * how to deal with multiple classes in css tags to access the right level of data
-* understand dynamic requests
+* understand dynamic requests: when the URL has a '#', the server does not care about what's after this symbol. The client (web browser) deals with it. Then, I needed to go the Developer's tools to find out where I could identify the "real" url I would need for scraping. Learned about cURL!
+* how to transform the cURL of into a request that can be handled by Scrapy (done manually at first, and discovered it can also be done using https://michael-shub.github.io/curl2scrapy/: thank you!!)
+* how to build a spider where the request has headers and parse the response which is in JSON format
+* how to easily visually the tree structure of a JSON format (thanks to: https://jsonformatter.org/json-viewer)
+* how to 
+
