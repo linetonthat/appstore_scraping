@@ -33,13 +33,14 @@ Basically, Scrapy allows for gently scraping the web, which is what I'm intended
 * Identify relevant apps (so far, couldn't find an app search menu outside the appstore app...)
     - Not sure, it could be automated, after reading robots.txt from Google store and App store, since I've read "Disallow: /store/search*" and "Disallow: /work/search". Need to checko on that!
     - Read about factors that most affect app ranking in the appstore (https://www.mobiloud.com/blog/factors-really-impact-app-store-ranking/): app's title, targeted keywords, number of downloads, and user ratings. I'm surprised that usage is not part of these factors. Should maybe check other resources. Need to do the same for the Play store: Should start with: https://thementalclub.com/rank-app-play-store-ranking-algorithm-26708.
-    
+* Build two distinct spiders:
+    1. One to collect app features and description across a range of apps (using landing page to incude app ranking in its category, html response)
+    2. One to collect reviews for a specific app (using json response for full reviews):
+        - Check how to collect data from fields that do not exist for all items.
+
 ---
 ## Next steps:
 
-* Build two distinct spiders:
-    1. One to collect app features and description across a range of apps (using landing page to incude app ranking in its category, html response)
-    2. One to collect reviews for a specific app (using json response for full reviews)
 * Investigate "live" apps: Are apps still maintained? Downloaded?
 * Have a look at the review texts (strange feeling when reading some of them)
 * Investigate how to automate data extraction from text reviews
