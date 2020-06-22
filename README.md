@@ -32,7 +32,7 @@ Basically, Scrapy allows for gently scraping the web, which is what I'm intended
     - Followed the guidance from Scrapy blog (https://blog.scrapinghub.com/2016/08/25/how-to-crawl-the-web-politely-with-scrapy) and updated my settings.
 * Identify relevant apps (so far, couldn't find an app search menu outside the appstore app...)
     - Not sure, it could be automated, after reading robots.txt from Google store and App store, since I've read "Disallow: /store/search*" and "Disallow: /work/search". Need to checko on that!
-    - Read about factors that most affect app ranking in the appstore (https://www.mobiloud.com/blog/factors-really-impact-app-store-ranking/): app's title, targeted keywords, number of downloads, and user ratings.
+    - Read about factors that most affect app ranking in the appstore (https://www.mobiloud.com/blog/factors-really-impact-app-store-ranking/): app's title, targeted keywords, number of downloads, and user ratings. I'm surprised that usage is not part of these factors. Should maybe check other resources. Need to do the same for the Play store: Should start with: https://thementalclub.com/rank-app-play-store-ranking-algorithm-26708.
     
 ---
 ## Next steps:
