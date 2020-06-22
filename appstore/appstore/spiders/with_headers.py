@@ -4,6 +4,7 @@ from urllib.parse import urlencode
 
 class WithHeadersSpider(scrapy.Spider):
     name = 'with_headers'
+    token = # define your token here
 
     # found after decoding the URL of the request
     params = {
@@ -34,7 +35,7 @@ class WithHeadersSpider(scrapy.Spider):
     headers = {
                 'Accept': 'application/json',
                 'Referer': 'https://apps.apple.com/fr/app/sensio-air-allergy-tracker/id1252417620',
-                'Authorization': 'Bearer eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IldlYlBsYXlLaWQifQ.eyJpc3MiOiJBTVBXZWJQbGF5IiwiaWF0IjoxNTkxNzI2MDEyLCJleHAiOjE2MDcyNzgwMTJ9.PF8vc_52NGR-o-E8N-kXKAuky0ikAMmBS79H0oHdbfYtXIxuqeRWhAtvNfmPTwlUs3-o2RHhxNvQGSQ46lk27w',
+                'Authorization': 'Bearer '+self.token,
                 'User-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36',
                 'Content-type': 'application/x-www-form-urlencoded; charset=UTF-8'
         }
