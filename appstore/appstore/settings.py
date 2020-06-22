@@ -16,7 +16,7 @@ NEWSPIDER_MODULE = 'appstore.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-USER_AGENT = 'appstore (line.tonthat@gmail.com)'
+USER_AGENT = 'appstore (who_you_are@organization)'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
