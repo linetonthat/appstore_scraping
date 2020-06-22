@@ -35,7 +35,7 @@ class WithHeadersSpider(scrapy.Spider):
     headers = {
                 'Accept': 'application/json',
                 'Referer': 'https://apps.apple.com/fr/app/sensio-air-allergy-tracker/id1252417620',
-                'Authorization': 'Bearer '+self.token,
+                'Authorization': 'Bearer '+token,
                 'User-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36',
                 'Content-type': 'application/x-www-form-urlencoded; charset=UTF-8'
         }
