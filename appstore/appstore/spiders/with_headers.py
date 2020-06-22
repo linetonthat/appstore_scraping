@@ -4,7 +4,7 @@ from urllib.parse import urlencode
 
 class WithHeadersSpider(scrapy.Spider):
     name = 'with_headers'
-    token = # define your token here
+    token = '' # define your token here
 
     # found after decoding the URL of the request
     params = {
