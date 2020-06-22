@@ -15,16 +15,16 @@ Basically, Scrapy allows for gently scraping the web, which is what I'm intended
 
 ---
 For the time being, I've been busy getting a better understanding of:
-*  how to navigate html response using css attributes (when the response is in html).
-    - how to deal with multiple classes in css tags to access the right level of data
-*  how to "translate" unicode text with '\r\n\t' and leading and trailing whitespaces
-    - used the .translate() function with the following dictionary: trans_table = {ord(c): None for c in u'\r\n\t'}
-    - used the .strip() function to get rid of leading and trailing whitespaces
-* understand dynamic requests: when the URL has a '#', the server does not care about what's after this symbol. The client (web browser) deals with it. Then, I went to the Developer's tools to find out where I could identify the "real" url I would need for scraping. Learned about cURL!
-    - how to transform the cURL of into a request that can be handled by Scrapy (done manually at first, and discovered it can also be done using https://michael-shub.github.io/curl2scrapy/: thank you!!)
-* how to build a spider where the requests have headers and deal with responses in JSON format
-    - how to easily visually the tree structure of a JSON format (thanks to: https://jsonformatter.org/json-viewer)
-    - how to decode parameters from a URL in order to tidy up the code (thanks to https://meyerweb.com/eric/tools/dencoder/)
+*  How to navigate html response using css attributes (when the response is in html).
+    - How to deal with multiple classes in css tags to access the right level of data
+*  How to "translate" unicode text with '\r\n\t' and leading and trailing whitespaces
+    - Used the .translate() function with the following dictionary: trans_table = {ord(c): None for c in u'\r\n\t'}
+    - Used the .strip() function to get rid of leading and trailing whitespaces
+* Understand dynamic requests: when the URL has a '#', the server does not care about what's after this symbol. The client (web browser) deals with it. Then, I went to the Developer's tools to find out where I could identify the "real" url I would need for scraping. Learned about cURL!
+    - How to transform the cURL of into a request that can be handled by Scrapy (done manually at first, and discovered it can also be done using https://michael-shub.github.io/curl2scrapy/: thank you!!)
+* How to build a spider where the requests have headers and deal with responses in JSON format
+    - How to easily visualize the tree structure of a JSON format (thanks to: https://jsonformatter.org/json-viewer)
+    - How to decode parameters from a URL in order to tidy up the code (thanks to: https://meyerweb.com/eric/tools/dencoder/)
 
 ---
 Next steps:
