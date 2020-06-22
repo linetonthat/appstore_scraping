@@ -14,8 +14,8 @@ After some research, it seems that Scrapy (https://doc.scrapy.org/en/latest/inde
 Basically, Scrapy allows for gently scraping the web, which is what I'm intended here, by creating spiders and sending them out to crawl the app stores.
 
 ---
-For the time being, I've been busy getting a better understanding of:
-*  How to navigate html response using css attributes (when the response is in html).
+## So far: Learned about:
+*  How to navigate html responses using css attributes.
     - How to deal with multiple classes in css tags to access the right level of data
 *  How to "translate" unicode text with '\r\n\t' and leading and trailing whitespaces
     - Used the .translate() function with the following dictionary: trans_table = {ord(c): None for c in u'\r\n\t'}
@@ -25,14 +25,20 @@ For the time being, I've been busy getting a better understanding of:
 * How to build a spider where the requests have headers and deal with responses in JSON format
     - How to easily visualize the tree structure of a JSON format (thanks to: https://jsonformatter.org/json-viewer)
     - How to decode parameters from a URL in order to tidy up the code (thanks to: https://meyerweb.com/eric/tools/dencoder/)
-
 ---
-Next steps:
-* Review the settings of my spiders to ensure gentle scraping (so far, I've been selecting pages with limited amount of data to scrape on purpose)
+## On-going activities:
+
+* Review the settings of my spiders to ensure gentle scraping (so far, I've been selecting pages with limited amount of data to scrape on purpose) :
+    - Followed the guidance from Scrapy blog (https://blog.scrapinghub.com/2016/08/25/how-to-crawl-the-web-politely-with-scrapy) and updated my settings.
+    * Identify relevant apps (so far, couldn't find an app search menu outside the appstore app...)
+ - Not sure, it could be automated, after reading robots.txt from Google store and App store, since I've read "Disallow: /store/search" and "Disallow: /work/search". Need to check
+    
+---
+## Next steps:
+
 * Build two distinct spiders:
     1. One to collect app features and description across a range of apps
     2. One to collect reviews for a specific app
-* Identify relevant apps (so far, couldn't find an app search menu outside the appstore app...)
 * Investigate "live" apps: Are apps still maintained? Downloaded?
 * Have a look at the review texts (strange feeling when reading some of them)
 * Investigate how to automate data extraction from text reviews
