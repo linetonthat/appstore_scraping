@@ -31,7 +31,7 @@ Basically, Scrapy allows for gently scraping the web, which is what I'm intended
 * Review the settings of my spiders to ensure gentle scraping (so far, I've been selecting pages with limited amount of data to scrape on purpose) :
     - Followed the guidance from Scrapy blog (https://blog.scrapinghub.com/2016/08/25/how-to-crawl-the-web-politely-with-scrapy) and updated my settings.
 * Identify relevant apps (so far, couldn't find an app search menu outside the appstore app...)
-    - Not sure, it could be automated, after reading robots.txt from Google store and App store, since I've read "Disallow: /store/search" and "Disallow: /work/search". Need to check
+    - Not sure, it could be automated, after reading robots.txt from Google store and App store, since I've read "Disallow: /store/search*" and "Disallow: /work/search". Need to check
     
 ---
 ## Next steps:
