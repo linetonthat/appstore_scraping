@@ -38,8 +38,8 @@ Basically, Scrapy allows for gently scraping the web, which is what I'm intended
 ## Next steps:
 
 * Build two distinct spiders:
-    1. One to collect app features and description across a range of apps
-    2. One to collect reviews for a specific app
+    1. One to collect app features and description across a range of apps (using landing page to incude app ranking in its category, html response)
+    2. One to collect reviews for a specific app (using json response for full reviews)
 * Investigate "live" apps: Are apps still maintained? Downloaded?
 * Have a look at the review texts (strange feeling when reading some of them)
 * Investigate how to automate data extraction from text reviews
