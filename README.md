@@ -25,18 +25,20 @@ Basically, Scrapy allows for gently scraping the web, which is what I'm intended
 * How to build a spider where the requests have headers and deal with responses in JSON format
     - How to easily visualize the tree structure of a JSON format (thanks to: https://jsonformatter.org/json-viewer)
     - How to decode parameters from a URL in order to tidy up the code (thanks to: https://meyerweb.com/eric/tools/dencoder/)
+* How to configure the settings of my spiders to ensure gentle scraping (prior to this step, I've been selecting on purpose pages with limited amount of data to scrape) :
+    - Followed the guidance from Scrapy blog (https://blog.scrapinghub.com/2016/08/25/how-to-crawl-the-web-politely-with-scrapy) and updated my settings.
 ---
 ## On-going activities:
 
-* Review the settings of my spiders to ensure gentle scraping (so far, I've been selecting pages with limited amount of data to scrape on purpose) :
-    - Followed the guidance from Scrapy blog (https://blog.scrapinghub.com/2016/08/25/how-to-crawl-the-web-politely-with-scrapy) and updated my settings.
 * Identify relevant apps (so far, couldn't find an app search menu outside the appstore app...)
     - Not sure, it could be automated, after reading robots.txt from Google store and App store, since I've read "Disallow: /store/search*" and "Disallow: /work/search". Need to checko on that!
     - Read about factors that most affect app ranking in the appstore (https://www.mobiloud.com/blog/factors-really-impact-app-store-ranking/): app's title, targeted keywords, number of downloads, and user ratings. I'm surprised that usage is not part of these factors. Should maybe check other resources. Need to do the same for the Play store: Should start with: https://thementalclub.com/rank-app-play-store-ranking-algorithm-26708.
 * Build two distinct spiders:
     1. One to collect app features and description across a range of apps (using landing page to incude app ranking in its category, html response)
     2. One to collect reviews for a specific app (using json response for full reviews):
-        - Check how to collect data from fields that do not exist for all items.
+        - Understand how reviews are loaded, and how to reproduce this loading using a spider. Reviews are loaded 10 by 10 when scrolling down in the web browser. Found a third url to use, as it's specific to reviews: 
+        - Loop on the review pages, until there is no more reviews to scrape (the more reviews, the better :-0)
+        - Check how to collect data from fields that do not exist for all items (e.g. response from the developer).
 
 ---
 ## Next steps:
