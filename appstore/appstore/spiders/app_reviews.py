@@ -15,7 +15,6 @@ class AppReviewsSpider(scrapy.Spider):
     root_url = 'https://amp-api.apps.apple.com/v1/catalog/FR/apps/'
 
     # define request headers similar to headers used in the web browser
-    #and REFRESH pages if needed before launching the spider
     headers =  {
         "Accept": "application/json",
         "Referer": ref_root_url+app_name+"/id"+ app_id,
