@@ -6,44 +6,36 @@ class AppReviewsSpider(scrapy.Spider):
     name = 'app_reviews'
     token = '' #define your token here
 
-    # found after decoding the URL of the request
-    params = {
-                "platform" : "web",
-                "additionalPlatforms":"appletv,ipad,iphone,mac",
-                "extend":"description,developerInfo,editorialVideo,eula,fileSizeByDevice,messagesScreenshots,privacyPolicyUrl,privacyPolicyText,promotionalText,screenshotsByType,supportURLForLanguage,versionHistory,videoPreviewsByType,websiteUrl",
-                "include":"genres,developer,reviews,merchandised-in-apps,customers-also-bought-apps,developer-other-apps,app-bundles,top-in-apps,eula",
-                "l":"fr-fr"
-            }
+    ref_root_url = "https://apps.apple.com/fr/app/"
+    app_name = 'airvisual-air-quality-forecast'
+    app_id = '1048912974' #AirVisual
+    #app_name = 'sensio-air'
+    #app_id = '1252417620' #SensioAir
 
     root_url = 'https://amp-api.apps.apple.com/v1/catalog/FR/apps/'
 
-    # ids found on the url of identified apps related to air quality on the appstore for France
-    app_ids = {
-                'sensio' : '1252417620',
-                #'breezometer' : '989623380'
-                }
-    # NameError: name 'root_url' is not defined
-    #start_urls = [root_url+v+'?'+ urlencode(params) for v in app_ids.values()]
-
-    # define the list of urls to crawl, based on the app ids
-    start_urls = []
-    for v in app_ids.values():
-        start_urls.append(root_url+v+'?'+ urlencode(params))
-
     # define request headers similar to headers used in the web browser
     #and REFRESH pages if needed before launching the spider
-    headers = {
-                'Accept': 'application/json',
-                'Referer': 'https://apps.apple.com/fr/app/sensio-air-allergy-tracker/id1252417620',
-                'Authorization': 'Bearer '+ token,
-                'User-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36',
-                'Content-type': 'application/x-www-form-urlencoded; charset=UTF-8'
+    headers =  {
+        "Accept": "application/json",
+        "Referer": ref_root_url+app_name+"/id"+ app_id,
+        "Authorization": "Bearer "+token,
+        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36",
+        "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
         }
 
-    # define crawler's entry points
     def start_requests(self):
-        for url in self.start_urls:
-            # make HTTP GET request to url
+        def parameters(offset):
+            return {
+                        "l":"fr-FR",
+                        "offset": offset,
+                        "platform":"web",
+                        "additionalPlatforms":"appletv,ipad,iphone,mac"
+                    }
+        # define urls to scrape
+        for i in range(34): # manual check done to identify the number of pages of reviews
+            offset = str(i)+'0'
+            url = self.root_url+self.app_id+'/reviews?'+ urlencode(parameters(offset))
             yield scrapy.Request(
                 url=url,
                 headers = self.headers
@@ -51,17 +43,22 @@ class AppReviewsSpider(scrapy.Spider):
 
     # parse responses
     def parse(self, response):
-        json_response = json.loads(response.text)
-        set_of_features = json_response['data'][0]['relationships']['reviews']['data']
-        for features in set_of_features:
-            yield {
-                    'review_id':features['id'],
-                    'rating' : features['attributes']['rating'],
-                    'title': features['attributes']['title'],
-                    'review_date': features['attributes']['date'],
-                    'user_name': features['attributes']['userName'],
-                    'review' : features['attributes']['review'],
-                    #'response_id': features['attributes']['developerResponse']['id'],
-                    #'dev_response': features['attributes']['developerResponse']['body'],
-                    #'response_date': features['attributes']['developerResponse']['modified'],
-                    }
+        if response is not None:
+            json_response = json.loads(response.text)
+            set_of_features = json_response['data']
+            for features in set_of_features:
+                d = dict()
+                # if there is no developer response, this will cause a Key Error exception
+                try:
+                    d['review_id']=features['id']
+                    d['rating']= features['attributes']['rating']
+                    d['title']= features['attributes']['title']
+                    d['review_date']= features['attributes']['date']
+                    d['user_name']= features['attributes']['userName']
+                    d['review']= features['attributes']['review']
+                    d['response_id']= features['attributes']['developerResponse']['id']
+                    d['dev_response']= features['attributes']['developerResponse']['body']
+                    d['response_date']= features['attributes']['developerResponse']['modified']
+                except KeyError:
+                    pass
+                yield d
