@@ -38,7 +38,7 @@ Basically, Scrapy allows for gently scraping the web, which is what I'm intended
     2. One to collect reviews for a specific app (using json response for full reviews):
         - Understand how reviews are loaded, and how to reproduce this loading using a spider. Reviews are loaded 10 by 10 when scrolling down in the web browser. Found a third url to use, as it's specific to reviews: 
         - Loop on the review pages, until there is no more reviews to scrape (the more reviews, the better :-0)
-        - Check how to collect data from fields that do not exist for all items (e.g. response from the developer).
+        - Check how to collect data from fields that do not exist for all items (e.g. response from the developer): Used handling exceptions.
 
 ---
 ## Next steps:
