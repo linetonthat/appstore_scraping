@@ -34,6 +34,7 @@ After some research, it seems that Scrapy (https://doc.scrapy.org/en/latest/inde
 
 ---
 ## Future Work
+* Scrape version history to better understand priorization of feature releases
 * Scrape similarly from Google Play store. App ranking are assessed on a different way apparently (https://thementalclub.com/rank-app-play-store-ranking-algorithm-26708).
 * Review app_review spider to build a loop that stops automatically when there is no more page to scrape.
    
