@@ -6,13 +6,17 @@ class AppReviewsSpider(scrapy.Spider):
     name = 'app_reviews'
     token = '' #define your token here
 
-    ref_root_url = "https://apps.apple.com/fr/app/"
+    #ref_root_url = "https://apps.apple.com/fr/app/" # France appstore
+    #ref_root_url = "https://apps.apple.com/gb/app/" # Great Britain appstore
+    #ref_root_url = "https://apps.apple.com/us/app/" # USA appstore
+    ref_root_url = "https://apps.apple.com/ae/app/" # UAE appstore
     app_name = 'airvisual-air-quality-forecast'
     app_id = '1048912974' #AirVisual
-    #app_name = 'sensio-air'
-    #app_id = '1252417620' #SensioAir
 
-    root_url = 'https://amp-api.apps.apple.com/v1/catalog/FR/apps/'
+    # root_url = 'https://amp-api.apps.apple.com/v1/catalog/FR/apps/' # France appstore
+    #root_url = 'https://amp-api.apps.apple.com/v1/catalog/GB/apps/' # Great Britain appstore
+    #root_url = 'https://amp-api.apps.apple.com/v1/catalog/US/apps/' # USA appstore
+    root_url = 'https://amp-api.apps.apple.com/v1/catalog/AE/apps/' # UAE appstore
 
     # define request headers similar to headers used in the web browser
     headers =  {
@@ -32,7 +36,7 @@ class AppReviewsSpider(scrapy.Spider):
                         "additionalPlatforms":"appletv,ipad,iphone,mac"
                     }
         # define urls to scrape
-        for i in range(34): # manual check done to identify the number of pages of reviews
+        for i in range(5): # manual check done to identify the number of pages of reviews: FR 34, GB: 25, USA: 310, UAE: 5
             offset = str(i)+'0'
             url = self.root_url+self.app_id+'/reviews?'+ urlencode(parameters(offset))
             yield scrapy.Request(
