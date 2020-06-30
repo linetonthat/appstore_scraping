@@ -24,6 +24,7 @@ After some research, it seems that Scrapy (https://doc.scrapy.org/en/latest/inde
     - Understood how reviews are loaded, and how to reproduce this loading using a spider. Reviews are loaded 10 by 10 when scrolling down in the web browser. Found a third url to use. This url is specific to reviews, and it's the best url to use for review scraping! 
     - Looped on the review pages to define the scraping requests.
     - Checked what's the best way to collect data from fields that do not exist for all items (e.g. response from the developer): Used handling exceptions (KeyError).
+    - Review app_review spider to build a loop that stops automatically when there is no more page to scrape (request launched within the parse function and callback of the parse function).
  * Build a "side" spider to scrape reviews for a given product on Amazon French website - [cf. amazon_reviews.py](https://github.com/linetonthat/appstore_scraping/blob/master/appstore/appstore/spiders/amazon_reviews.py)
    - Recursively follow the link to the next page.
    
@@ -40,5 +41,4 @@ After some research, it seems that Scrapy (https://doc.scrapy.org/en/latest/inde
 ## Future Work
 * Scrape version history to better understand priorization of feature releases
 * Scrape similarly from Google Play store. App ranking are assessed on a different way apparently (https://thementalclub.com/rank-app-play-store-ranking-algorithm-26708).
-* Review app_review spider to build a loop that stops automatically when there is no more page to scrape.
    
