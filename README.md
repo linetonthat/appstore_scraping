@@ -19,6 +19,7 @@ After some research, it seems that Scrapy (https://doc.scrapy.org/en/latest/inde
         - How to decode parameters from a URL in order to tidy up the code (thanks to: https://meyerweb.com/eric/tools/dencoder/)
     * How to configure the settings of my spiders to ensure gentle scraping (prior to this step, I've been selecting on purpose pages with limited amount of data to scrape) : [settings.py](https://github.com/linetonthat/appstore_scraping/blob/master/appstore/appstore/settings.py)
         - Followed the guidance from Scrapy blog (https://blog.scrapinghub.com/2016/08/25/how-to-crawl-the-web-politely-with-scrapy) and updated my settings.
+        - Disable #HTTPCACHE_ENABLED = True, as some pages were not reached using a spider, while they could be fetched using the same request via scrapy shell.
 * Built a spider to collect reviews for a specific app (app id and app name are required) - [app_reviews.py](https://github.com/linetonthat/appstore_scraping/blob/master/appstore/appstore/spiders/app_reviews.py)
     - Understood how reviews are loaded, and how to reproduce this loading using a spider. Reviews are loaded 10 by 10 when scrolling down in the web browser. Found a third url to use. This url is specific to reviews, and it's the best url to use for review scraping! 
     - Looped on the review pages to define the scraping requests.
