@@ -23,7 +23,7 @@ After some research, it seems that Scrapy (https://doc.scrapy.org/en/latest/inde
      - Disabled #HTTPCACHE_ENABLED = True, as some pages were not reached using a spider, while they could be fetched using the same request via scrapy shell.
 
 ---
-### Built a spider to scrape specific features of apps on the appstore related to air quality - using SelectorList in CSS
+### Built a spider to scrape specific app features on the appstore related to air quality - using SelectorList in CSS
 * Identify relevant apps 
    - (so far, couldn't find an app search menu outside the appstore app...)
    - Not sure, it could be automated, after reading robots.txt from Google store and App store, since I've read "Disallow: /store/search*" and "Disallow: /work/search". Need to check on that!
