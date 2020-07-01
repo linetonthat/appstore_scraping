@@ -33,7 +33,7 @@ After some research, it seems that Scrapy (https://doc.scrapy.org/en/latest/inde
    - Dealing with Exceptions as some features are not present for all apps.
 
 ---
-### Built a spider to scrape all the app reviews on the appstore from a given country - using dynamic requests with headers and token (JSON response)
+### Built a spider to scrape all the app reviews on the appstore for a given country - using dynamic requests with headers and token (JSON response)
 * Built a spider to collect reviews for a specific app (app id and app name are required) - [cf. app_reviews.py](https://github.com/linetonthat/appstore_scraping/blob/master/appstore/appstore/spiders/app_reviews.py)
     - Understood how reviews are loaded, and how to reproduce this loading using a spider. Reviews are loaded 10 by 10 when scrolling down in the web browser. Found a third url to use. This url is specific to reviews, and it's the best url to use for review scraping! 
     - Looped on the review pages to define the scraping requests.
@@ -41,7 +41,7 @@ After some research, it seems that Scrapy (https://doc.scrapy.org/en/latest/inde
     - Review app_review spider to build a loop that stops automatically when there is no more page to scrape (request launched within the parse function and callback of the parse function).
     
 ---
-### Built a simple spider to scrape all the reviews on Amazon French website -  using SelectorList in CSS
+### Built a simple spider to scrape all the reviews for a specific product on Amazon French website -  using SelectorList in CSS
  * Build a "side" spider to scrape reviews for a given product on Amazon French website - [cf. amazon_reviews.py](https://github.com/linetonthat/appstore_scraping/blob/master/appstore/appstore/spiders/amazon_reviews.py)
    - Recursively follow the link to the next page.
 
